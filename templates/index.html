@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Disease Prediction</title>
 
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1 class="top-heading">Heart Disease Prediction System</h1>
+
+<div class="container">
+
+    <h1>Heart Disease Prediction</h1>
+
+    <form action="/predict" method="post">
+
+        <input type="number" name="Age" placeholder="Age" required>
+
+        <select name="Sex" required>
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <select name="ChestPainType" required>
+            <option value="">Chest Pain Type</option>
+            <option value="ATA">ATA</option>
+            <option value="NAP">NAP</option>
+            <option value="ASY">ASY</option>
+            <option value="TA">TA</option>
+        </select>
+
+        <input type="number" name="RestingBP"
+               placeholder="Resting Blood Pressure" required>
+
+        <input type="number" name="Cholesterol"
+               placeholder="Cholesterol" required>
+
+        <input type="number" name="FastingBS"
+               placeholder="Fasting Blood Sugar (0 or 1)" required>
+
+        <select name="RestingECG" required>
+            <option value="">Resting ECG</option>
+            <option value="Normal">Normal</option>
+            <option value="ST">ST</option>
+            <option value="LVH">LVH</option>
+        </select>
+
+        <input type="number" name="MaxHR"
+               placeholder="Maximum Heart Rate" required>
+
+        <select name="ExerciseAngina" required>
+            <option value="">Exercise Angina</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <input type="number" step="any"
+               name="Oldpeak"
+               placeholder="Oldpeak" required>
+
+        <select name="ST_Slope" required>
+            <option value="">ST Slope</option>
+            <option value="Up">Up</option>
+            <option value="Flat">Flat</option>
+            <option value="Down">Down</option>
+        </select>
+
+        <button type="submit"><b>Predict</b></button>
+
+    </form>
+
+    <h2>{{ prediction_text }}</h2>
+
+</div>
+
+</body>
+</html>
